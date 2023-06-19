@@ -1,0 +1,28 @@
+// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+// for details on configuring this project to bundle and minify static web assets.
+
+// Write your JavaScript code.
+
+$(function () {
+    $.ajaxSetup({ cache: false });
+    
+    $("a[]").on("click", function (e) {
+
+        var url = this.href;
+        return false;
+    });
+
+
+    function bindForm(dialog) {
+       $('form', dialog).submit(function () {
+           var action = this.action;
+           var method = this.method;
+           var formSubmissionData = $(this).serialize();
+           return false;
+        });
+    }
+        
+
+
+
+});

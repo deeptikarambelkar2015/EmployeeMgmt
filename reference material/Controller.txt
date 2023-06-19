@@ -1,0 +1,18 @@
+[HttpGet]
+        public async Task<IActionResult> Edit(int id = 0)
+        {
+            Phone phone = await _phoneRepository.Get(id);
+            return PartialView("Edit", phone);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(Phone phone)
+        {
+            if (ModelState.IsValid)
+            {
+                await _phoneRepository.Update(phone);
+                return Json(new { success = true });
+            }
+            return PartialView("Edit", phone);
+        }
