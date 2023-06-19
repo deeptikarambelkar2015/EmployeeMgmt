@@ -5,24 +5,20 @@
 
 $(function () {
     $.ajaxSetup({ cache: false });
-    
-    $("a[]").on("click", function (e) {
 
+    $("a[]").on("click", function (e) {
         var url = this.href;
+        alert(url);
         return false;
     });
 
 
     function bindForm(dialog) {
-       $('form', dialog).submit(function () {
-           var action = this.action;
-           var method = this.method;
-           var formSubmissionData = $(this).serialize();
-           return false;
+        $('form', dialog).submit(function () {
+            var action = this.action;
+            var method = this.method;
+            var formSubmissionData = $(this).serialize();
+            return false;
         });
     }
-        
-
-
-
-});
+})
