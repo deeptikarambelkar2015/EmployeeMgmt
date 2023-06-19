@@ -1,0 +1,52 @@
+// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+// for details on configuring this project to bundle and minify static web assets.
+
+// Write your JavaScript code.
+
+$(function () {
+    $.ajaxSetup({ cache: false });
+    
+    $("a[data-modal]").on("click", function (e) {
+        
+        var url = this.href;
+        $('#myModalContent').load(url, function () {
+            $('#myModal').modal('show');
+        });
+        
+        return false;
+    });
+
+
+    function onSubmitOfModal(dialog) {
+       $('form', dialog).submit(function () {
+           $('#progress').show();
+
+           var action = this.action;
+           var method = this.method;
+           var formSubmissionData = $(this).serialize();
+
+            $.ajax({
+                url: action,
+                type: method,
+                data: formSubmissionData,
+                success: function (result) {
+                    if (result.success) {
+
+                        $('#myModal').modal('hide');
+                        $('#progress').hide();
+                        location.reload();
+                    } else {
+                        $('#progress').hide();
+                        $('#myModalContent').html(result);
+                        bindForm();
+                    }
+                }
+            });
+            return false;
+        });
+    }
+        
+
+
+
+});
