@@ -9,9 +9,10 @@ $(function () {
     $("a[data-modal]").on("click", function (e) {
         
         var url = this.href;
-        $('#myModalContent').load(url, function () {
-            $('#myModal').modal('show');
-        });
+        alert(url);
+        //$('#myModalContent').load(url, function () {
+        //    $('#myModal').modal('show');
+        //});
         
         return false;
     });
