@@ -19,8 +19,7 @@ $(function () {
 
     function onSubmitOfModal(dialog) {
        $('form', dialog).submit(function () {
-           $('#progress').show();
-
+          
            var action = this.action;
            var method = this.method;
            var formSubmissionData = $(this).serialize();
@@ -31,14 +30,13 @@ $(function () {
                 data: formSubmissionData,
                 success: function (result) {
                     if (result.success) {
-
-                        $('#myModal').modal('hide');
-                        $('#progress').hide();
-                        location.reload();
+                        alert(result.success);
+                        //$('#myModal').modal('hide');
+                        //location.reload();
                     } else {
-                        $('#progress').hide();
-                        $('#myModalContent').html(result);
-                        bindForm();
+                        alert(result.success);
+                        //$('#myModalContent').html(result);
+                        //onSubmitOfModal();
                     }
                 }
             });
