@@ -12,6 +12,7 @@ $(function () {
         alert(url);
         //$('#myModalContent').load(url, function () {
         //    $('#myModal').modal('show');
+        //onSubmitOfModal(this);
         //});
         
         return false;
