@@ -34,7 +34,7 @@ $(function () {
                         //$('#myModal').modal('hide');
                         //location.reload();
                     } else {
-                        alert(result.success);
+                        alert(false);
                         //$('#myModalContent').html(result);
                         //onSubmitOfModal();
                     }
