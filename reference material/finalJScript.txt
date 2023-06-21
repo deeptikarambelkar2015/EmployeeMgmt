@@ -6,46 +6,51 @@
 $(function () {
     $.ajaxSetup({ cache: false });
 
-    $("a[data-modal]").on("click", function (e) {
-
-        var url = this.href;
-        $('#myModalContent').load(url, function () {
-            $('#myModal').modal('show');
-            //onSubmitOfModal(this);
-        });
-
-        return false;
-    });
-
-
-    function onSubmitOfModal(dialog) {
-        $('form', dialog).submit(function () {
-
-            var action = this.action;
-            var method = this.method;
-            var formSubmissionData = $(this).serialize();
-
-            $.ajax({
-                url: action,
-                type: method,
-                data: formSubmissionData,
-                success: function (result) {
-                    if (result.success) {
-                        alert(result.success);
-                        //$('#myModal').modal('hide');
-                        //location.reload();
-                    } else {
-                        alert(false);
-                        //$('#myModalContent').html(result);
-                        //onSubmitOfModal();
-                    }
-                }
-            });
-            return false;
-        });
-    }
+   
 
 
 
 
 });
+
+
+//----------On click of the anchor tag, open the url in the anchor tag inside the modal
+
+$("a[data-modal]").on("click", function (e) {
+
+    var url = this.href;
+    $('#myModalContent').load(url, function () {
+        $('#myModal').modal('show');
+        //onSubmitOfModal(this);
+    });
+
+    return false;
+});
+
+//----------On submit of the button inside a modal popup, post the data to the server by making an ajax call
+function onSubmitOfModal(dialog) {
+    $('form', dialog).submit(function () {
+
+        var action = this.action;
+        var method = this.method;
+        var formSubmissionData = $(this).serialize();
+
+        $.ajax({
+            url: action,
+            type: method,
+            data: formSubmissionData,
+            success: function (result) {
+                if (result.success) {
+                    alert(result.success);
+                    //$('#myModal').modal('hide');
+                    //location.reload();
+                } else {
+                    alert(false);
+                    //$('#myModalContent').html(result);
+                    //onSubmitOfModal();
+                }
+            }
+        });
+        return false;
+    });
+}
