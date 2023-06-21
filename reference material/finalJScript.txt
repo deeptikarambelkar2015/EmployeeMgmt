@@ -16,7 +16,7 @@ $(function () {
 
 //----------On click of the anchor tag, open the url in the anchor tag inside the modal
 
-$("a[data-modal]").on("click", function (e) {
+$("a").on("click", function (e) {
 
     var url = this.href;
     $('#myModalContent').load(url, function () {
