@@ -19,8 +19,8 @@ $(function () {
 $("a").on("click", function (e) {
 
     var url = this.href;
-    $('#myModalContent').load(url, function () {
-        $('#myModal').modal('show');
+    $('#IdOftheInnerDiv').load(url, function () {
+        $('#idOfTheOuterModalDiv').modal('show');
         //onSubmitOfModal(this);
     });
 
