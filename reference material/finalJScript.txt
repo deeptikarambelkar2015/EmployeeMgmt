@@ -5,26 +5,25 @@
 
 $(function () {
     $.ajaxSetup({ cache: false });
-    
+
     $("a[data-modal]").on("click", function (e) {
-        
+
         var url = this.href;
-        alert(url);
-        //$('#myModalContent').load(url, function () {
-        //    $('#myModal').modal('show');
-        //onSubmitOfModal(this);
-        //});
-        
+        $('#myModalContent').load(url, function () {
+            $('#myModal').modal('show');
+            //onSubmitOfModal(this);
+        });
+
         return false;
     });
 
 
     function onSubmitOfModal(dialog) {
-       $('form', dialog).submit(function () {
-          
-           var action = this.action;
-           var method = this.method;
-           var formSubmissionData = $(this).serialize();
+        $('form', dialog).submit(function () {
+
+            var action = this.action;
+            var method = this.method;
+            var formSubmissionData = $(this).serialize();
 
             $.ajax({
                 url: action,
@@ -45,7 +44,7 @@ $(function () {
             return false;
         });
     }
-        
+
 
 
 
