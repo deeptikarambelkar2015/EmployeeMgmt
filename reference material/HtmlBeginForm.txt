@@ -1,14 +1,9 @@
 @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(m=>m.PhoneId)
-
+        
         //Put the modal-body and modal-footer here
     }
 
-    <script>
-        $("form").removeData("validator");
-        $("form").removeData("unobtrusiveValidation");
-        $.validator.unobtrusive.parse("form");
-    </script>
+   
 
