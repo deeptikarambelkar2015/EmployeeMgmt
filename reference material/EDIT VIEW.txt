@@ -2,9 +2,9 @@
         @Html.HiddenFor(m=>m.Id)
 
         <div class="form-group">
-            @Html.LabelFor(m => Model.FirstName, new { @class = "control-label col-sm-3" })
+            @Html.LabelFor(m => Model.FirstName, new { @class = "control-label col-sm-3 required" })
             <div class="col-sm-9">
-                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control required" })
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
                 <div>
                     @Html.ValidationMessageFor(m => m.FirstName)
                 </div>
@@ -12,9 +12,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(m => Model.LastName, new { @class = "control-label col-sm-3" })
+            @Html.LabelFor(m => Model.LastName, new { @class = "control-label col-sm-3 required" })
             <div class="col-sm-9">
-                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control required" })
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
                 <div>
                     @Html.ValidationMessageFor(m => m.LastName)
                 </div>
@@ -23,9 +23,9 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(m => Model.Email, new { @class = "control-label col-sm-3" })
+            @Html.LabelFor(m => Model.Email, new { @class = "control-label col-sm-3 required" })
             <div class="col-sm-9">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control required" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                 <div>
                     @Html.ValidationMessageFor(m => m.Email)
                 </div>
@@ -36,7 +36,7 @@
          <div class="form-group">
             @Html.LabelFor(m => Model.State, new { @class = "control-label col-sm-3" })
             <div class="col-sm-9">
-                @Html.TextBoxFor(m => m.State, new { @class = "form-control required" })
+                @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
                 <div>
                     @Html.ValidationMessageFor(m => m.State)
                 </div>
@@ -46,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(m => Model.City, new { @class = "control-label col-sm-3" })
             <div class="col-sm-9">
-                @Html.TextBoxFor(m => m.City, new { @class = "form-control required" })
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
                 <div>
                     @Html.ValidationMessageFor(m => m.City)
                 </div>
