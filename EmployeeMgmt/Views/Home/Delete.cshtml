@@ -1,3 +1,92 @@
-﻿<div class="text-center">
+﻿@model Employee
+
+<div class="text-center">
     <h1 class="display-4">Delete</h1>
 </div>
+
+
+
+@*<div class="modal-header">
+    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        <div class="form-horizontal">
+            @Html.HiddenFor(m=>m.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.FirstName, new { @class = "control-label col-sm-3 required" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control",@disabled="disabled" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(m => Model.LastName, new { @class = "control-label col-sm-3 required" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" ,@disabled="disabled"})
+                    <div>
+                        @Html.ValidationMessageFor(m => m.LastName)
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.Email, new { @class = "control-label col-sm-3 required" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" ,@disabled="disabled"})
+                    <div>
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="form-group">
+                @Html.LabelFor(m => Model.State, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.State, new { @class = "form-control",@disabled="disabled" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.State)
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(m => Model.City, new { @class = "control-label col-sm-3" })
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(m => m.City, new { @class = "form-control",@disabled="disabled" })
+                    <div>
+                        @Html.ValidationMessageFor(m => m.City)
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="mt-2 col-md-12">
+            <div class="alert alert-danger" role="alert">
+                Are you sure you want to delete this employee record?
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="modal-footer">
+        @*<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>*@
+        <button type="submit" class="btn btn-primary">Yes, Delete</button>
+    </div>
+}
+
+
