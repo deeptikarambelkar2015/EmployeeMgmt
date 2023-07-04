@@ -27,11 +27,24 @@ namespace EmployeeMgmt.Controllers
             return View();
         }
 
-        public IActionResult Edit()
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            Employee employee = await _employeeRepository.Get(id);
+            return View("Edit",employee);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                await _employeeRepository.Update(employee);
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
         public IActionResult Delete()
         {
             return View();
