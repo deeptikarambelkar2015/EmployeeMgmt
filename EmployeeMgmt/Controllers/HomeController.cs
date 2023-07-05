@@ -45,14 +45,25 @@ namespace EmployeeMgmt.Controllers
             }
             return View(employee);
         }
-        public IActionResult Delete()
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+            Employee employee = await _employeeRepository.Get(id);
+            return View("Delete", employee);
         }
 
-        public IActionResult Details()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(Employee employee)
         {
-            return View();
+          
+                await _employeeRepository.Delete(employee.Id);
+                return RedirectToAction("Index");
+         
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+            Employee employee = await _employeeRepository.Get(id);
+            return View("Details", employee);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
