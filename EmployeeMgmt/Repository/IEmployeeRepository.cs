@@ -12,6 +12,6 @@ namespace EmployeeMgmt.Repository
 
         Task<Employee> Update(Employee employee);
 
-        Task<bool> Delete(int phoneId);
+        Task<bool> Delete(int employeeId);
     }
 }
